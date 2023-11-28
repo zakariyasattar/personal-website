@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue&family=Inter&family=Kay+Pho+Du&family=Londrina+Outline&family=Roboto+Mono&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css"/>
+
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <script src="./main.js"></script>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="jquery.custom-caret-1.1.js"></script>
+  </head>
+
+
+    <body id="body">
+      <div id="terminal">
+        <div class="terminal-parent">
+          <div class="terminal">
+            <span>users/zakariyasattar/portfolio ~</span>
+            <input type="text" class="terminal-input" placeholder="type 'ls'"></input>
+          </div>
+
+          <div class="terminal-output"></div>
+
+        </div>
+      </div>
+      <div id="about" style="display:none;">
+        <div id="about-header-parent">
+          <h1 id="about-header">Zakariya Sattar</h1>
+        </div>
+        <div id="about-text-parent">
+          <h1 id="about-header-second">Who Am I?</h1>
+        </div>
+      </div>
+      <div id="interests" style="display:none;">
+      </div>
+      <div id="projects" style="display:none;">
+      </div>
+      <div id="bonus" style="display:none;">
+      </div>
+
+      <div id="tiny-terminal" onclick="returnToTerminal();">
+        <span id="tiny-terminal-text" >users/zakariyasattar/portfolio ~ <div id="cursor"></div></span>
+      </div>
+
+      <div id="normal-nav">
+        <div id="hamburger-parent">
+          <div class="demo">
+            <div class="menu-icon">
+              <input class="menu-icon__cheeckbox" type="checkbox" />
+              <div>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="nav-parent">
+          <div id="nav" style="opacity:0;">
+            <button class="nav-button" id="intro-nav">Intro</button>
+            <button class="nav-button" id="interests-nav">Interests</button>
+            <button class="nav-button" id="projects-nav">Projects</button>
+            <button class="nav-button-bonus" id="bonus-nav">Bonus</button>
+          </div>
+        </div>
+      </div>
+    </body>
+
+</html>

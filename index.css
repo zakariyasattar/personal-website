@@ -1,0 +1,291 @@
+#body {
+  background: #232946;
+
+}
+
+/* font-family: 'Kay Pho Du', serif;
+font-family: 'Londrina Outline', sans-serif;
+    font-family: 'Inter', sans-serif;
+*/
+
+.terminal-parent {
+  height: 100%;
+  overflow: hidden;
+  padding-left: 35px;
+  padding-top: 35px;
+}
+
+#tip {
+  color: #fffffe;
+  font-family: 'Kay Pho Du', serif;
+}
+
+.terminal {
+  background: transparent;
+  color: #b8c1ec;
+  max-width: inherit;
+  max-height: inherit;
+  font-size: 20px;
+  word-break: break-all;
+
+  padding-bottom: 10px;
+
+  font-family: 'Roboto Mono', monospace;
+}
+
+.ls {
+  display: block;
+  font-size: 15px;
+  color: #fffffe;
+  padding-top: 5px;
+  font-family: monospace;
+}
+
+input::placeholder {
+  opacity: .2;
+  color: #faedd4;
+}
+
+input {
+  color: #fffffe;
+  font-size: 20px;
+  background: transparent;
+  border: none;
+  font-family: monospace;
+
+  width: 70%;
+  height: 25px;
+  overflow: hidden;
+  display:block
+
+  top: 3px;
+}
+
+input:focus {outline:none;}
+
+/* ABOUT */
+
+#about {
+}
+
+#about-header {
+  font-family: 'Londrina Outline', sans-serif;
+  color: #4654ea;
+  font-size: 200px;
+  font-weight: 100;
+
+  line-height: 80%;
+}
+
+#about-header-parent {
+  width: 30%;
+  overflow: hidden;
+  overflow-wrap: break-word;
+
+  position: relative;
+  margin-left: 3%;
+  margin-top: -8%;
+
+  border-right: 1px solid #d1d1e9;
+  display: inline-block;
+}
+
+#about-text-parent {
+  display: inline-block;
+  vertical-align:top;
+  width: 60%;
+}
+
+#about-header-second {
+  font-family: 'Kay Pho Du', serif;
+  color: #fffffe;
+
+  font-size: 65px;
+  text-align: center;
+}
+
+#tiny-terminal {
+  position: absolute;
+  bottom: 10%;
+  width: 40%;
+  height: 5%;
+  outline: 2px solid #3da9fc;
+  background: #232946;
+  left: 30%;
+  border-radius: 10px;
+
+  display: inline-block;
+  transition: all .3s ease 0s;
+
+}
+
+#tiny-terminal:hover {
+  cursor: pointer;
+  width: 42%;
+  left: 29%;
+
+  transition: all .3s ease 0s;
+}
+
+#tiny-terminal-text {
+  color: #fffffe;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 17px;
+  color: #b8c1ec;
+  padding-left: 20px;
+  position: relative;
+  top: 10%;
+}
+
+#cursor {
+  width: 4px;
+  height: 13px;
+  outline: 3px solid white;
+  background: white;
+  animation: blinker 1.5s linear infinite;
+  position: absolute;
+  top: 25%;
+  left: 102%;
+}
+
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+#nav-parent {
+  width: 27%;
+  position: absolute;
+  bottom: 10%;
+  left: 36.5%;
+  height: 45px;
+}
+
+#normal-nav {
+  overflow: none;
+}
+
+#nav {
+  outline: 2px solid #b8c1ec;
+  border-radius: 8px;
+
+  color: #fffffe;
+  text-align: center;
+
+  -webkit-transition: opacity 500ms, visibility 600ms;
+  transition: opacity 500ms, visibility 600ms;
+}
+
+
+.nav-button{
+  margin: 10px;
+
+  border-right: 1px solid white;
+  padding-right: 20px;
+  height: 100%;
+  font-family: 'Kay Pho Du', sans-serif;
+}
+
+.nav-button-bonus{
+  margin: 10px;
+  height: 100%;
+  font-family: 'Kay Pho Du', sans-serif;
+}
+
+.hamburger {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ width: 100vw;
+ height: 100vh;
+}
+
+#hamburger-parent {
+  position: absolute;
+  bottom: 12%;
+  left: 50px;
+}
+
+:root {
+ --bar-bg: #d4d8f0;
+}
+
+.menu-icon {
+color: white;
+ position: relative;
+ width: 50px;
+ height: 50px;
+ cursor: pointer;
+
+ .menu-icon__cheeckbox {
+   display: block;
+   width: 100%;
+   height: 100%;
+   position: relative;
+   cursor: pointer;
+   z-index: 2;
+   -webkit-touch-callout: none;
+   position: absolute;
+   opacity: 0;
+ }
+ div {
+   margin: auto;
+   position: absolute;
+   right:0;
+   bottom: 0;
+   width: 22px;
+   height: 12px;
+ }
+ span {
+   position: absolute;
+   display: block;
+   width: 100%;
+   height: 2px;
+   background-color: var(--bar-bg, #ffffff);
+   border-radius: 1px;
+   transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
+
+   &:first-of-type {
+     top: 0;
+   }
+   &:last-of-type {
+     bottom: 0;
+   }
+ }
+ &.active,
+ .menu-icon__cheeckbox:checked + div {
+   span {
+     &:first-of-type {
+       transform: rotate(45deg);
+       top: 5px;
+     }
+     &:last-of-type {
+       transform: rotate(-45deg);
+       bottom: 5px;
+     }
+   }
+ }
+
+ &.active:hover span:first-of-type,
+ &.active:hover span:last-of-type,
+ &:hover .menu-icon__cheeckbox:checked + div span:first-of-type,
+ &:hover .menu-icon__cheeckbox:checked + div span:last-of-type {
+   width: 22px;
+ }
+
+ &:hover {
+   // no need hover effect on mobile.
+   @media (min-width: 1024px) {
+     span:first-of-type {
+       width: 26px;
+     }
+
+     span:last-of-type {
+       width: 12px;
+     }
+   }
+ }
+}
+
