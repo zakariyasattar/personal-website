@@ -38,6 +38,7 @@ function evalCommand(command) {
 
     if(command == "about") {
       loadAbout();
+
     }
 
     if(command == 'clear') {
@@ -53,7 +54,12 @@ function invalidCommand() {
   var terminals = document.getElementsByClassName("terminal-output");
   var terminal_output = terminals[terminals.length - 1];
 
-  console.log(terminal_output);
+  var error_msg = document.createElement('span');
+  error_msg.innerHTML = "Sorry, that command doesn't exist!";
+  error_msg.style.color = "#FF7F50";
+  error_msg.style.fontSize = "15px";
+
+  terminal_output.appendChild(error_msg);
 }
 
 function clearTerm() {
@@ -96,6 +102,7 @@ function generateTerminal() {
 
 function returnToTerminal() {
   document.getElementById("about").style.display = "none";
+  document.getElementById("about").style.opacity = "0";
   document.getElementById("projects").style.display = "none";
   document.getElementById("bonus").style.display = "none";
 
@@ -108,11 +115,22 @@ function returnToTerminal() {
 }
 
 function loadAbout() {
+  var terminals = document.getElementsByClassName("terminal-output");
+  var terminal_output = terminals[terminals.length - 1];
+
+  var msg = document.createElement('span');
+  msg.innerHTML = "Mapping to About...";
+  msg.style.color = "#59ff50";
+  msg.style.fontSize = "15px";
+
+  terminal_output.appendChild(msg);
+
   document.getElementById("normal-nav").style.display = "none";
   document.getElementById("tiny-terminal").style.display = "block";
 
   document.getElementById("terminal").style.display = "none";
   document.getElementById("about").style.display = "block";
+  document.getElementById("about").style.opacity = "1";
 
   document.getElementById("body").style.background = "#16161a";
 

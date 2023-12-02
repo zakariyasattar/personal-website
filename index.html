@@ -15,13 +15,15 @@
     <script src="./main.js"></script>
     <script src="jquery-3.2.1.min.js"></script>
     <script src="jquery.custom-caret-1.1.js"></script>
+
+    <title>Zakariya Sattar</title
   </head>
 
 
     <body id="body">
       <div id="terminal">
         <div class="terminal-parent">
-          <div class="terminal">
+          <div class="terminal" style="transition: opacity 2s; opacity: 1">
             <span>users/zakariyasattar/portfolio ~</span>
             <input type="text" class="terminal-input" placeholder="type 'ls'"></input>
           </div>
@@ -30,22 +32,42 @@
 
         </div>
       </div>
-      <div id="about" style="display:none;">
+      <div id="about" style="transition: opacity 2s; opacity: 0;">
         <div id="about-header-parent">
           <h1 id="about-header">Zakariya Sattar</h1>
         </div>
         <div id="about-text-parent">
-          <h1 id="about-header-second">Who Am I?</h1>
+          <p id="about-text">
+              So, who <i>is</i> Zakariya Sattar? Well, to start, I'm a second year Computer Science student at Michigan State
+              University and so far, I've done some amazing things, like building out crazy personal projects, studying Arabic abroad
+              in Jordan, and traveling the world (solo) to some insane destinations.
+              <br/> <br/>
+
+              I came into high school knowing exactly what I wanted to do. I enrolled in the highest AP
+              computer science course I could find (even though I knew nothing about coding) and proceeded to do well,
+              impress the professor, and be nominated for president of the App Development Club. Basically the story of my life:
+              show up in places I don't belong and do better than everyone else. Sorry if that comes off too strong,
+              but it's the truth 	&#128513;.
+              <br/><br/>
+
+              From there, it was onto Michigan State University, where I was there for a quick year, before I made the decision
+              to spend a year in Jordan, studying Arabic. Thats a whole other story for another time. On return to MSU I joined
+              a Network Security Lab and began re-orienting myself with my earliest passion, Computer Science.
+
+              Obviously theres <b> a lot </b> more to talk about, but I don't have enough
+              space to talk about it here &#128529;. <a style="color: #7f5af0" href="mailto:zakariyasattar03@gmail.com">Email me</a>
+              to schedule an interview.
+          </p>
         </div>
       </div>
-      <div id="interests" style="display:none;">
+      <div id="interests" style="opacity: 0;">
       </div>
-      <div id="projects" style="display:none;">
+      <div id="projects" style="opacity: 0;">
       </div>
-      <div id="bonus" style="display:none;">
+      <div id="bonus" style="opacity: 0;">
       </div>
 
-      <div id="tiny-terminal" onclick="returnToTerminal();">
+      <div id="tiny-terminal" onclick="returnToTerminal();" style="display: none">
         <span id="tiny-terminal-text" >users/zakariyasattar/portfolio ~ <div id="cursor"></div></span>
       </div>
 

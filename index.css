@@ -94,19 +94,32 @@ input:focus {outline:none;}
   display: inline-block;
   vertical-align:top;
   width: 60%;
+  position: relative;
+  left: 10px;
+  top: 3vh;
 }
 
 #about-header-second {
   font-family: 'Kay Pho Du', serif;
-  color: #fffffe;
+  color: #94a1b2;
 
   font-size: 65px;
   text-align: center;
 }
 
+#about-text {
+  color: #fffffe;
+  font-family: 'Inter', sans-serif;
+  margin-left: 10%;
+  padding: 20px;
+  line-height: 200%;
+  outline: 1px solid white;
+  border-radius: 15px;
+}
+
 #tiny-terminal {
   position: absolute;
-  bottom: 10%;
+  bottom: 5%;
   width: 40%;
   height: 5%;
   outline: 2px solid #3da9fc;
@@ -134,7 +147,7 @@ input:focus {outline:none;}
   color: #b8c1ec;
   padding-left: 20px;
   position: relative;
-  top: 10%;
+  top: 12%;
 }
 
 #cursor {
