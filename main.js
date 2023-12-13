@@ -23,7 +23,10 @@ function initTerm() {
       }
     }
   });
-  loadAbout();
+
+  loadProjects();
+  returnToTerminal();
+  loadProjects();
 }
 
 function evalCommand(command) {
@@ -35,10 +38,18 @@ function evalCommand(command) {
     if(command == "ls") {
       printLS();
     }
-
     if(command == "about") {
       loadAbout();
+    }
+    if(command == "projects") {
+      loadProjects();
 
+      // I would fix but ig im lazy??
+      returnToTerminal();
+      loadProjects();
+    }
+    if(command == "interests") {
+      loadInterests();
     }
 
     if(command == 'clear') {
@@ -102,11 +113,11 @@ function generateTerminal() {
 
 function returnToTerminal() {
   document.getElementById("about").style.display = "none";
-  document.getElementById("about").style.opacity = "0";
   document.getElementById("projects").style.display = "none";
   document.getElementById("bonus").style.display = "none";
 
   document.getElementById("terminal").style.display = "block";
+  document.getElementById("normal-nav").style.display = "block";
   document.getElementById("body").style.background = "#232946";
   document.getElementById("tiny-terminal").style.display = "none";
 
@@ -136,9 +147,61 @@ function loadAbout() {
 
 }
 
+let slideIndex = 1;
+
+function loadProjects() {
+  var terminals = document.getElementsByClassName("terminal-output");
+  var terminal_output = terminals[terminals.length - 1];
+
+  var msg = document.createElement('span');
+  msg.innerHTML = "Mapping to Projects...";
+  msg.style.color = "#59ff50";
+  msg.style.fontSize = "15px";
+
+  terminal_output.appendChild(msg);
+
+  document.getElementById("normal-nav").style.display = "none";
+  document.getElementById("tiny-terminal").style.display = "block";
+
+  document.getElementById("terminal").style.display = "none";
+  document.getElementById("projects").style.display = "block";
+  document.getElementById("projects").style.opacity = "1";
+
+  document.getElementById("body").style.background = "#abd1c6";
+
+  showSlides(slideIndex);
+}
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  var slides = document.getElementsByClassName("project");
+
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  slides[slideIndex-1].style.display = "block";
+}
+
 function printLS() {
   var terminals = document.getElementsByClassName("terminal-output");
   var output = terminals[terminals.length-1];
+
+  var instructions = document.createElement('span');
+  instructions.className = "ls";
+  instructions.innerHTML = "type in any of the commands below!";
+  instructions.style.color = "royalblue";
 
   var about = document.createElement('span');
   about.className = "ls";
@@ -159,9 +222,10 @@ function printLS() {
   cd_into.appendChild(tabNode);
   cd_into.textContent += "type: folder";
 
+  output.appendChild(instructions);
   output.appendChild(about);
-  output.appendChild(interests);
   output.appendChild(projects);
+  output.appendChild(interests);
   output.appendChild(cd_into);
 }
 

@@ -6,6 +6,7 @@
 /* font-family: 'Kay Pho Du', serif;
 font-family: 'Londrina Outline', sans-serif;
     font-family: 'Inter', sans-serif;
+    font-family: 'Cedarville Cursive', cursive;
 */
 
 .terminal-parent {
@@ -117,14 +118,62 @@ input:focus {outline:none;}
   border-radius: 15px;
 }
 
+/* PROJECTS */
+.project {
+  width: 75%;
+  height: 80vh;
+  background: #004643;
+  position: fixed;
+  left: 11%;
+  top: 7.5vh;
+  border-radius: 30px;
+  padding: 20px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  font-family: 'Kay Pho Du', serif;
+  cursor: pointer;
+  top: 48%;
+  width: auto;
+  margin-top: -22px;
+  padding: 15px;
+  color: #f9bc60 ;
+  font-weight: bold;
+  font-size: 15px;
+  transition: 0.6s ease;
+  user-select: none;
+
+  background-color: black;
+
+}
+
+.next {
+  border-radius: 1px 100px 100px 0px;
+}
+.prev {
+  border-radius: 100px 1px 0px 100px;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
 #tiny-terminal {
   position: absolute;
   bottom: 5%;
-  width: 40%;
+  width: 35%;
   height: 5%;
   outline: 2px solid #3da9fc;
   background: #232946;
-  left: 30%;
+  left: 32.5%;
   border-radius: 10px;
 
   display: inline-block;
@@ -134,8 +183,8 @@ input:focus {outline:none;}
 
 #tiny-terminal:hover {
   cursor: pointer;
-  width: 42%;
-  left: 29%;
+  width: 36%;
+  left: 32%;
 
   transition: all .3s ease 0s;
 }
