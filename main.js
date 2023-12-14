@@ -25,7 +25,6 @@ function initTerm() {
   });
 
   document.addEventListener("keydown", function(event) {
-    console.log("hello");
     if(document.getElementById("projects").style.display != "none") {
       if (event.key === "ArrowRight") {
         plusSlides(1);
@@ -36,13 +35,13 @@ function initTerm() {
     }
   });
 
-  loadProjects();
-  returnToTerminal();
-  loadProjects();
+  // loadProjects();
+  // returnToTerminal();
+  // loadProjects();
 }
 
 function evalCommand(command) {
-  var commands = ['ls', 'cd', 'about', 'interests', 'projects', 'clear'];
+  var commands = ['ls', 'cd', 'about', 'interests', 'projects', 'clear', 'resume'];
 
   command = command.replace(" ", "");
 
@@ -59,6 +58,9 @@ function evalCommand(command) {
       // I would fix but ig im lazy??
       returnToTerminal();
       loadProjects();
+    }
+    if(command == "resume") {
+      downloadResume();
     }
     if(command == "interests") {
       loadInterests();
@@ -135,6 +137,20 @@ function returnToTerminal() {
 
   var terminal_input = document.getElementsByClassName("terminal-input")[document.getElementsByClassName("terminal-input").length - 1];
   terminal_input.focus();
+}
+
+function downloadResume() {
+  var terminals = document.getElementsByClassName("terminal-output");
+  var terminal_output = terminals[terminals.length - 1];
+
+  var msg = document.createElement('span');
+  msg.innerHTML = "Opening Resume...";
+  msg.style.color = "#59ff50";
+  msg.style.fontSize = "15px";
+
+  terminal_output.appendChild(msg);
+
+  window.open('ZakariyaSattarResume.pdf', '_blank');
 }
 
 function loadAbout() {
@@ -227,9 +243,14 @@ function printLS() {
   projects.className = "ls";
   projects.textContent = "projects";
 
+  var resume = document.createElement('span');
+  resume.className = "ls";
+  resume.textContent = "resume";
+
   var cd_into = document.createElement('span');
   cd_into.className = "ls";
   cd_into.textContent = 'cd_into_me';
+
   var tabNode = document.createTextNode("\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0");
   cd_into.appendChild(tabNode);
   cd_into.textContent += "type: folder";
@@ -237,6 +258,7 @@ function printLS() {
   output.appendChild(instructions);
   output.appendChild(about);
   output.appendChild(projects);
+  output.appendChild(resume);
   output.appendChild(interests);
   output.appendChild(cd_into);
 }
