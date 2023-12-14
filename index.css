@@ -129,6 +129,7 @@ input:focus {outline:none;}
   top: 7.5vh;
   border-radius: 5px;
   padding: 20px;
+  overflow: scroll;
 }
 
 .project-text {

@@ -24,6 +24,18 @@ function initTerm() {
     }
   });
 
+  document.addEventListener("keydown", function(event) {
+    console.log("hello");
+    if(document.getElementById("projects").style.display != "none") {
+      if (event.key === "ArrowRight") {
+        plusSlides(1);
+      }
+      else if (event.key === "ArrowLeft") {
+        plusSlides(-1);
+      }
+    }
+  });
+
   loadProjects();
   returnToTerminal();
   loadProjects();
