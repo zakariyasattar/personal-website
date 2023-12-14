@@ -7,6 +7,7 @@
 font-family: 'Londrina Outline', sans-serif;
     font-family: 'Inter', sans-serif;
     font-family: 'Cedarville Cursive', cursive;
+    font-family: 'Kalnia', serif;
 */
 
 .terminal-parent {
@@ -126,18 +127,62 @@ input:focus {outline:none;}
   position: fixed;
   left: 11%;
   top: 7.5vh;
-  border-radius: 30px;
+  border-radius: 5px;
   padding: 20px;
 }
 
-/* Next & previous buttons */
+.project-text {
+  display:inline-block;
+  color: white;
+  font-family: 'Kalnia', serif;"
+}
+
+#next-slide-hint {
+  width: 7.5%;
+  float: right;
+  height: 85.59vh;
+  border-radius: 5px 0px 0px 5px;
+  background: #004643;
+  opacity: 0.75;
+  position: absolute;
+  right: 0;
+  top: 7.5vh;
+  transition: 0.6s ease;
+}
+
+#next-slide-hint:hover {
+  opacity: 1;
+  cursor: pointer;
+  width: 8%;
+}
+
+#prev-slide-hint {
+  width: 7.5%;
+  float: left;
+  height: 85.59vh;
+  border-radius: 0px 5px 5px 0px;
+  background: #004643;
+  opacity: 0.75;
+  position: absolute;
+  left: 0;
+  top: 7.5vh;
+  transition: 0.6s ease;
+}
+
+#prev-slide-hint:hover {
+  opacity: 1;
+  cursor: pointer;
+  width: 8%;
+}
+
 .prev, .next {
   font-family: 'Kay Pho Du', serif;
   cursor: pointer;
   top: 48%;
   width: auto;
   margin-top: -22px;
-  padding: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   color: #f9bc60 ;
   font-weight: bold;
   font-size: 15px;
@@ -150,9 +195,13 @@ input:focus {outline:none;}
 
 .next {
   border-radius: 1px 100px 100px 0px;
+  padding-left: 10px;
+  padding-right: 20px;
 }
 .prev {
   border-radius: 100px 1px 0px 100px;
+  padding-right: 10px;
+  padding-left: 20px;
 }
 
 /* Fading animation */

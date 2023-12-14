@@ -5,7 +5,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Epilogue&family=Inter&family=Kay+Pho+Du&family=Londrina+Outline&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Epilogue&family=Inter&family=Kalnia&family=Kay+Pho+Du&family=Londrina+Outline&family=Roboto+Mono&display=swap" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"></script>
@@ -62,7 +62,12 @@
       </div>
       <div id="projects" style="opacity: 0; display: none; font-family: 'Cedarville Cursive', cursive;">
         <div class="project">
-          <center><span style="font-size: 65px; color: white;">Test-Lock</span></center>
+          <center><span style="font-size: 65px; color: white; text-decoration: underline; text-decoration-style: dashed;">Test-Lock</span></center>
+
+          <p class="project-text">
+            <img src="./images/testlock.png" width="50%" height="50%" style="float: right; margin-right: 20px;"></img>
+            Test-Lock began as a side passion project after I discovered the fact the browser
+          </p>
         </div>
         <div class="project" style="color: white">
           NEXT PROJECT
@@ -71,10 +76,8 @@
           NEXT PROJECT
         </div>
 
-        <div id="next-slide-parent" style="display: inline-flex; position: absolute; top: 15vh; left: 75%;">
-          <a class="prev" onclick="plusSlides(-1)">next</a>
-          <a class="next" onclick="plusSlides(1)">prev</a>
-        </div>
+        <div id="next-slide-hint" onclick="plusSlides(-1)"></div>
+        <div id="prev-slide-hint" onclick="plusSlides(1)"></div>
 
       </div>
       <div id="interests" style="opacity: 0;">
