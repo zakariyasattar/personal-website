@@ -75,6 +75,7 @@ input:focus {outline:none;}
   color: #4654ea;
   font-size: 200px;
   font-weight: 100;
+  text-shadow: 2px 2px #ff0000;
 
   line-height: 80%;
 }
