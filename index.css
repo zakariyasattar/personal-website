@@ -8,6 +8,7 @@ font-family: 'Londrina Outline', sans-serif;
     font-family: 'Inter', sans-serif;
     font-family: 'Cedarville Cursive', cursive;
     font-family: 'Kalnia', serif;
+    font-family: 'Afacad', sans-serif;
 */
 
 .terminal-parent {
@@ -75,7 +76,7 @@ input:focus {outline:none;}
   color: #4654ea;
   font-size: 200px;
   font-weight: 100;
-  text-shadow: 2px 2px #ff0000;
+  text-shadow: 2px 2px #750707;
 
   line-height: 80%;
 }
@@ -136,7 +137,8 @@ input:focus {outline:none;}
 .project-text {
   display:inline-block;
   color: white;
-  font-family: 'Kalnia', serif;"
+  font-family: 'Afacad', sans-serif;
+  font-size: 19px;
 }
 
 #next-slide-hint {
