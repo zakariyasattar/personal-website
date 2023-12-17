@@ -1,10 +1,6 @@
 window.onload = function() {
   initTerm();
 
-  const icnMenu = document.querySelector('.menu-icon');
-  icnMenu.addEventListener('click', () => {
-    toggleNav();
-  });
 };
 
 function initTerm() {
@@ -41,7 +37,7 @@ function initTerm() {
 }
 
 function evalCommand(command) {
-  var commands = ['ls', 'cd', 'about', 'interests', 'projects', 'clear', 'resume'];
+  var commands = ['ls', 'cd', 'about', 'projects', 'clear', 'resume'];
 
   command = command.replace(" ", "");
 
@@ -50,20 +46,17 @@ function evalCommand(command) {
       printLS();
     }
     if(command == "about") {
-      loadAbout();
+      loadAbout(true);
     }
     if(command == "projects") {
-      loadProjects();
+      loadProjects(true);
 
       // I would fix but ig im lazy??
       returnToTerminal();
-      loadProjects();
+      loadProjects(false);
     }
     if(command == "resume") {
       downloadResume();
-    }
-    if(command == "interests") {
-      loadInterests();
     }
 
     if(command == 'clear') {
@@ -91,10 +84,12 @@ function clearTerm() {
   var terminals = document.getElementsByClassName('terminal-parent');
 
   for(var term of terminals) {
-        term.remove();
+    term.remove();
   }
 
-  generateTerminal();
+  if(document.getElementsByClassName('terminal-parent').length > 0) {
+    clearTerm();
+  }
 }
 
 function generateTerminal() {
@@ -131,7 +126,6 @@ function returnToTerminal() {
   document.getElementById("bonus").style.display = "none";
 
   document.getElementById("terminal").style.display = "block";
-  document.getElementById("normal-nav").style.display = "block";
   document.getElementById("body").style.background = "#232946";
   document.getElementById("tiny-terminal").style.display = "none";
 
@@ -139,32 +133,35 @@ function returnToTerminal() {
   terminal_input.focus();
 }
 
-function downloadResume() {
+function downloadResume(shouldPrint) {
   var terminals = document.getElementsByClassName("terminal-output");
   var terminal_output = terminals[terminals.length - 1];
 
   var msg = document.createElement('span');
-  msg.innerHTML = "Opening Resume...";
-  msg.style.color = "#59ff50";
-  msg.style.fontSize = "15px";
+  if(shouldPrint) {
+    msg.innerHTML = "Opening Resume...";
+    msg.style.color = "#59ff50";
+    msg.style.fontSize = "15px";
+  }
 
   terminal_output.appendChild(msg);
 
   window.open('ZakariyaSattarResume.pdf', '_blank');
 }
 
-function loadAbout() {
+function loadAbout(shouldPrint) {
   var terminals = document.getElementsByClassName("terminal-output");
   var terminal_output = terminals[terminals.length - 1];
 
   var msg = document.createElement('span');
-  msg.innerHTML = "Mapping to About...";
-  msg.style.color = "#59ff50";
-  msg.style.fontSize = "15px";
+  if(shouldPrint) {
+    msg.innerHTML = "Mapping to About...";
+    msg.style.color = "#59ff50";
+    msg.style.fontSize = "15px";
+  }
 
   terminal_output.appendChild(msg);
 
-  document.getElementById("normal-nav").style.display = "none";
   document.getElementById("tiny-terminal").style.display = "block";
 
   document.getElementById("terminal").style.display = "none";
@@ -177,18 +174,19 @@ function loadAbout() {
 
 let slideIndex = 1;
 
-function loadProjects() {
+function loadProjects(shouldPrint) {
   var terminals = document.getElementsByClassName("terminal-output");
   var terminal_output = terminals[terminals.length - 1];
 
   var msg = document.createElement('span');
-  msg.innerHTML = "Mapping to Projects...";
-  msg.style.color = "#59ff50";
-  msg.style.fontSize = "15px";
+  if(shouldPrint) {
+    msg.innerHTML = "Mapping to Projects...";
+    msg.style.color = "#59ff50";
+    msg.style.fontSize = "15px";
+  }
 
   terminal_output.appendChild(msg);
 
-  document.getElementById("normal-nav").style.display = "none";
   document.getElementById("tiny-terminal").style.display = "block";
 
   document.getElementById("terminal").style.display = "none";
@@ -232,18 +230,35 @@ function printLS() {
   instructions.style.color = "royalblue";
 
   var about = document.createElement('span');
+
+  $(about).click(function(){
+    loadAbout(false);
+  });
+  about.style.textDecoration = "underline";
+  about.style.cursor = "pointer";
+
   about.className = "ls";
   about.textContent = "about";
 
-  var interests = document.createElement('span');
-  interests.className = "ls";
-  interests.textContent = "interests";
-
   var projects = document.createElement('span');
+
+  $(projects).click(function(){
+    loadProjects(false);
+  });
+  projects.style.textDecoration = "underline";
+  projects.style.cursor = "pointer";
+
   projects.className = "ls";
   projects.textContent = "projects";
 
   var resume = document.createElement('span');
+
+  $(resume).click(function(){
+    downloadResume(false);
+  });
+  resume.style.textDecoration = "underline";
+  resume.style.cursor = "pointer";
+
   resume.className = "ls";
   resume.textContent = "resume";
 
@@ -259,17 +274,7 @@ function printLS() {
   output.appendChild(about);
   output.appendChild(projects);
   output.appendChild(resume);
-  output.appendChild(interests);
   output.appendChild(cd_into);
 }
 
-function toggleNav() {
-  var nav = document.getElementById('nav');
-  if(nav.style.opacity == "0") {
-    nav.style.opacity = "1";
-  }
-  else {
-    nav.style.opacity = "0";
-  }
-}
 

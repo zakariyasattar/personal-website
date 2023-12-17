@@ -5,7 +5,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Afacad&family=Cedarville+Cursive&family=Inter&family=Kalnia&family=Kay+Pho+Du&family=Londrina+Outline&family=Roboto+Mono&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Afacad&family=Cedarville+Cursive&family=Inter&family=Kalnia&family=Kay+Pho+Du&family=Londrina+Outline&family=Roboto+Mono&display=swap" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"></script>
@@ -16,7 +16,8 @@
     <script src="jquery-3.2.1.min.js"></script>
     <script src="jquery.custom-caret-1.1.js"></script>
 
-    <title>Zakariya Sattar</title
+    <title>Zakariya Sattar</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
   </head>
 
 
@@ -32,7 +33,7 @@
 
         </div>
       </div>
-      <div id="about" style="transition: opacity 2s; opacity: 0;">
+      <div id="about" style="transition: opacity 2s; opacity: 0; display: none;">
         <div id="about-header-parent">
           <h1 id="about-header">Zakariya Sattar</h1>
         </div>
@@ -68,15 +69,17 @@
             <img src="./images/testlock.png" width="50%" height="50%" style="border-radius: 5px; float: right; margin-right: 20px; margin-left: 20px;"></img>
             <img src="./images/test-lock-student-data.png" width="50%" height="50%" style="border-radius: 5px; float: right; margin-right: 20px; margin-left: 20px; margin-top: 20px;"></img>
 
-            &emsp; Test-Lock began as an idea that I had when I noticed that most of the available testing applications
-            were desktop applications and very tricky to use and navigate. I prided myself in the fact that Test-Lock
-            was the <i>only</i> in-browser testing solution on the market at the time. I began working on Test-Lock in the summer
-            after I got out of school, and after about 3 months, I had close to a finished product, just in time for the start of the new school year.
-            This was a project that absolutely revolutionized my skill set. After this project, I came out with deep knowledge
-            of working with JS and HTML to make dynamic webpages and with a brand new skills in database creation and management
-            I was also forced to learn how to store and organize data locally using JSON and SessionStorage. Overall, this is the
-            biggest project I've ever worked on, and while it never got used by any schools officially, I am beyond grateful for this
-            opportunity because of how much I learned.
+            &emsp; The idea behind Test-Lock developed after I noticed two things. The first being that javascript has an in-built
+            event handler for when the browser exists Full-Screen mode, and the second was that most of the available testing applications
+            were desktop applications that were very tricky to use and navigate. The idea was very simple: take the user into
+            Full-Screen mode when they start an exam, and when they try to exit Full-Screen mode, give them an alert, warning them
+            that if they tried to exit 5 times in total, the exam would be turned in. If the alert was on screen for more than 10 seconds,
+            automatically terminate the exam. The user was shown a countdown timer on the alert. This was the largest project I had ever done
+            until that point because it required not only implementing this relatively simple front-end feature, but also I had to implement
+            proper, secure testing capabilities and an entire functioning back-end for teachers to create and grade tests.
+            Due to the scale of the project, I was able to attain deep knowledge of working with JS and HTML to make dynamic webpages and skills in database creation and management.
+            I was also forced to learn how to store and organize data locally using JSON and SessionStorage, provide and process authentication,
+            and to perform calculations on large sets of data.
 
             <br/><br/>
 
@@ -90,15 +93,15 @@
         <div class="project" style="color: white">
           <center><span style="font-size: 65px; color: white; text-decoration: underline; text-decoration-style: dashed;">Niles West Bus App</span></center>
           <p class="project-text">
-            <span style="float: right">&emsp; The Niles West Bus App first came into fruition as an idea proposal submitted to the App Development Club
-            The problem was that the school busses would arrive in random spots every day, and there was only
-            one person that new the locations of all the bus: the security guard. So, without fail, every day hundreds of students
-            would swamp this security guard asking where their bus number was. Our app was an easy solution to a big problem.
-            As the president of the App Development Club, I was tasked with the creation of the app. Within a week of the idea
-            being presented to the club, another student and I had finished the app. It was beautiful, to this day I've never
-            worked on a project that has been so simple and had such an impact on the daily lives of so many people. When
-            this project was officially launched, I really began to understand the level of impact that was possible through my
-            work as a Computer Scientist.</span>
+            <span style="float: right">
+            &emsp; The Niles West Bus App first came into fruition as an idea proposal submitted to the App Development Club,
+            of which I was the president. The problem was that the school buses would arrive in random spots every day, and there was only
+            one security guard that knew the locations of all the buses. Every day hundreds of students
+            would swamp this security guard asking where their bus was located. It was a big problem with an easy solution.
+            It took me and another student a week before the project was completed, and the day we launched we logged over 350 page views.
+            It was beautiful, to this day I've never worked on a project that has been so simple and has had such an impact on the
+            daily lives of so many people. Once this program became an integral part of the school, I really began to understand the level of
+            impact that was possible through my work as a Computer Scientist.</span>
             <div style="display: inline;">
               <img src="./images/nwbusapp.png" width="48%" height="48%" style="margin-left: 10px; margin-right: 1%;position: relative; float: left; border-radius: 5px;"></img>
               <img src="./images/nwbusapp_staff.png" width="48%" height="48%" style="margin-right: 10px;  margin-left: 1%; position: relative; float: left; border-radius: 5px;"></img>
@@ -111,37 +114,12 @@
         <div id="prev-slide-hint" onclick="plusSlides(-1)"></div>
 
       </div>
-      <div id="interests" style="opacity: 0;">
-      </div>
       <div id="bonus" style="opacity: 0;">
       </div>
 
       <div id="tiny-terminal" onclick="returnToTerminal();" style="display: none">
         <span id="tiny-terminal-text" >users/zakariyasattar/portfolio ~ <div id="cursor"></div></span>
       </div>
-
-      <div id="normal-nav">
-        <div id="hamburger-parent">
-          <div class="demo">
-            <div class="menu-icon">
-              <input class="menu-icon__cheeckbox" type="checkbox" />
-              <div>
-                <span></span>
-                <span></span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="nav-parent">
-          <div id="nav" style="opacity:0;">
-            <button class="nav-button" id="intro-nav">Intro</button>
-            <button class="nav-button" id="projects-nav">Projects</button>
-            <button class="nav-button" id="interests-nav">Interests</button>
-            <button class="nav-button-bonus" id="bonus-nav">Bonus</button>
-            <button class="nav-button" id="resume-nav">Resume</button>
-          </div>
-        </div>
       </div>
     </body>
 
