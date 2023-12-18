@@ -31,9 +31,10 @@ function initTerm() {
     }
   });
 
-  // loadProjects();
-  // returnToTerminal();
-  // loadProjects();
+  loadProjects();
+  returnToTerminal();
+  loadProjects();
+  plusSlides(1);
 }
 
 function evalCommand(command) {
