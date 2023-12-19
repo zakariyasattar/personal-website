@@ -1,6 +1,7 @@
 window.onload = function() {
   initTerm();
   sessionStorage.clear();
+  sessionStorage.setItem("lastDir", "portfolio");
 };
 
 function initTerm() {
@@ -30,7 +31,7 @@ function initTerm() {
       }
     }
   });
-  sessionStorage.setItem("current_dir", "cd_into_me");
+  // sessionStorage.setItem("current_dir", "cd_into_me");
 }
 
 function evalCommand(command) {
@@ -103,7 +104,10 @@ function generateTerminal() {
 
 
   var text = document.createElement("span");
-  if(sessionStorage.getItem("current_dir") == null) {
+  if(sessionStorage.getItem("lastDir") == "zakariyasattar") {
+    text.innerHTML = "users/zakariyasattar ~";
+  }
+  else if(sessionStorage.getItem("current_dir") == null) {
     text.innerHTML = "users/zakariyasattar/portfolio ~";
   }
   else {
@@ -165,6 +169,8 @@ function routeToDir(directory) {
         text = term_text.innerHTML;
 
         term_text.innerHTML = text.substring(0, text.lastIndexOf("/")) + " ~";
+
+        sessionStorage.setItem("lastDir", term_text.innerHTML.substring(term_text.innerHTML.lastIndexOf("/") + 1, term_text.innerHTML.indexOf("~") -1));
       }, 40);
     }
     else {
@@ -271,12 +277,12 @@ function printLS() {
   var terminals = document.getElementsByClassName("terminal-output");
   var output = terminals[terminals.length-1];
 
-  if(sessionStorage.getItem("current_dir") == null) {
+  if(sessionStorage.getItem("lastDir") == "portfolio") {
 
     var instructions = document.createElement('span');
     instructions.className = "ls";
     instructions.innerHTML = "type in any of the commands below!";
-    instructions.style.color = "royalblue";
+    instructions.style.color = "#FFFDD0";
 
     var about = document.createElement('span');
 
@@ -325,15 +331,45 @@ function printLS() {
     output.appendChild(resume);
     output.appendChild(cd_into);
   }
-  else if(sessionStorage.getItem("current_dir") == "cd_into_me") {
+  else if(sessionStorage.getItem("lastDir") == "cd_into_me") {
     var terminals = document.getElementsByClassName("terminal-output");
     var terminal_output = terminals[terminals.length - 1];
 
     var msg = document.createElement('span');
     msg.innerHTML = "Hmmm, it looks like this directory is empty... It is cool though how ALL the features of the cd command are implemented. Try returning to the main directory, twice?";
-    msg.style.color = "#FFFDD0";
+    msg.style.color = "royalblue";
     msg.style.fontSize = "15px";
     terminal_output.appendChild(msg);
+  }
+  else if(sessionStorage.getItem("lastDir") == "zakariyasattar") {
+    var instructions = document.createElement('span');
+    instructions.className = "ls";
+    instructions.innerHTML = "type in any of the commands below!";
+    instructions.style.color = "#FFFDD0";
+
+    var bonus = document.createElement('span');
+
+    $(bonus).click(function(){
+      loadAbout(false);
+    });
+    bonus.style.textDecoration = "underline";
+    bonus.style.cursor = "pointer";
+
+    bonus.className = "ls";
+    bonus.textContent = "bonus";
+
+    var portfolio = document.createElement('span');
+    portfolio.className = "ls";
+    portfolio.textContent = 'portfolio';
+
+    var tabNode = document.createTextNode("\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0");
+    portfolio.appendChild(tabNode);
+    portfolio.textContent += "type: folder";
+
+
+    output.appendChild(instructions);
+    output.appendChild(bonus);
+    output.appendChild(portfolio);
   }
 }
 
