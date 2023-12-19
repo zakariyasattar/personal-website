@@ -1,6 +1,6 @@
 window.onload = function() {
   initTerm();
-
+  sessionStorage.clear();
 };
 
 function initTerm() {
@@ -30,11 +30,7 @@ function initTerm() {
       }
     }
   });
-
-  loadProjects();
-  returnToTerminal();
-  loadProjects();
-  plusSlides(1);
+  sessionStorage.setItem("current_dir", "cd_into_me");
 }
 
 function evalCommand(command) {
@@ -42,7 +38,7 @@ function evalCommand(command) {
 
   command = command.replace(" ", "");
 
-  if(commands.includes(command)) {
+  if(command.substring(0, 2) == "cd" || commands.includes(command)) {
     if(command == "ls") {
       printLS();
     }
@@ -62,6 +58,12 @@ function evalCommand(command) {
 
     if(command == 'clear') {
       clearTerm();
+    }
+
+    if(command.substring(0, 2) == "cd") {
+      var directory = command.substring(2);
+
+      routeToDir(directory);
     }
   }
   else {
@@ -98,7 +100,19 @@ function generateTerminal() {
   term_parent.className = "terminal-parent";
   var terminal = document.createElement('div');
   terminal.className = "terminal";
-  var text = document.createTextNode("users/zakariyasattar/portfolio ~");
+
+
+  var text = document.createElement("span");
+  if(sessionStorage.getItem("current_dir") == null) {
+    text.innerHTML = "users/zakariyasattar/portfolio ~";
+  }
+  else {
+    text.innerHTML = "users/zakariyasattar/portfolio/" + sessionStorage.getItem("current_dir") + " ~";
+  }
+
+  text.className = "term-text";
+
+
   var input = document.createElement('input');
   input.type = "text";
   input.className = "terminal-input";
@@ -132,6 +146,38 @@ function returnToTerminal() {
 
   var terminal_input = document.getElementsByClassName("terminal-input")[document.getElementsByClassName("terminal-input").length - 1];
   terminal_input.focus();
+}
+
+function routeToDir(directory) {
+    if(directory == "cd_into_me") {
+      setTimeout(function(){
+        sessionStorage.setItem("current_dir", directory);
+        var term_text = document.getElementsByClassName("term-text")[document.getElementsByClassName("term-text").length - 1];
+        var text = term_text.innerHTML;
+
+        term_text.innerHTML = text.substring(0, text.indexOf("~") - 1) +  "/" + directory + " ~";
+      }, 40);
+    }
+    else if(directory == "..") {
+      setTimeout(function(){
+        sessionStorage.clear();
+        var term_text = document.getElementsByClassName("term-text")[document.getElementsByClassName("term-text").length - 1];
+        text = term_text.innerHTML;
+
+        term_text.innerHTML = text.substring(0, text.lastIndexOf("/")) + " ~";
+      }, 40);
+    }
+    else {
+      var terminals = document.getElementsByClassName("terminal-output");
+      var terminal_output = terminals[terminals.length - 1];
+
+      var msg = document.createElement('span');
+      msg.innerHTML = "Directory '" + directory + "' doesn't exist";
+      msg.style.color = "#59ff50";
+      msg.style.fontSize = "15px";
+
+      terminal_output.appendChild(msg);
+    }
 }
 
 function downloadResume(shouldPrint) {
@@ -225,57 +271,70 @@ function printLS() {
   var terminals = document.getElementsByClassName("terminal-output");
   var output = terminals[terminals.length-1];
 
-  var instructions = document.createElement('span');
-  instructions.className = "ls";
-  instructions.innerHTML = "type in any of the commands below!";
-  instructions.style.color = "royalblue";
+  if(sessionStorage.getItem("current_dir") == null) {
 
-  var about = document.createElement('span');
+    var instructions = document.createElement('span');
+    instructions.className = "ls";
+    instructions.innerHTML = "type in any of the commands below!";
+    instructions.style.color = "royalblue";
 
-  $(about).click(function(){
-    loadAbout(false);
-  });
-  about.style.textDecoration = "underline";
-  about.style.cursor = "pointer";
+    var about = document.createElement('span');
 
-  about.className = "ls";
-  about.textContent = "about";
+    $(about).click(function(){
+      loadAbout(false);
+    });
+    about.style.textDecoration = "underline";
+    about.style.cursor = "pointer";
 
-  var projects = document.createElement('span');
+    about.className = "ls";
+    about.textContent = "about";
 
-  $(projects).click(function(){
-    loadProjects(false);
-  });
-  projects.style.textDecoration = "underline";
-  projects.style.cursor = "pointer";
+    var projects = document.createElement('span');
 
-  projects.className = "ls";
-  projects.textContent = "projects";
+    $(projects).click(function(){
+      loadProjects(false);
+    });
+    projects.style.textDecoration = "underline";
+    projects.style.cursor = "pointer";
 
-  var resume = document.createElement('span');
+    projects.className = "ls";
+    projects.textContent = "projects";
 
-  $(resume).click(function(){
-    downloadResume(false);
-  });
-  resume.style.textDecoration = "underline";
-  resume.style.cursor = "pointer";
+    var resume = document.createElement('span');
 
-  resume.className = "ls";
-  resume.textContent = "resume";
+    $(resume).click(function(){
+      downloadResume(false);
+    });
+    resume.style.textDecoration = "underline";
+    resume.style.cursor = "pointer";
 
-  var cd_into = document.createElement('span');
-  cd_into.className = "ls";
-  cd_into.textContent = 'cd_into_me';
+    resume.className = "ls";
+    resume.textContent = "resume";
 
-  var tabNode = document.createTextNode("\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0");
-  cd_into.appendChild(tabNode);
-  cd_into.textContent += "type: folder";
+    var cd_into = document.createElement('span');
+    cd_into.className = "ls";
+    cd_into.textContent = 'cd_into_me';
 
-  output.appendChild(instructions);
-  output.appendChild(about);
-  output.appendChild(projects);
-  output.appendChild(resume);
-  output.appendChild(cd_into);
+    var tabNode = document.createTextNode("\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0");
+    cd_into.appendChild(tabNode);
+    cd_into.textContent += "type: folder";
+
+    output.appendChild(instructions);
+    output.appendChild(about);
+    output.appendChild(projects);
+    output.appendChild(resume);
+    output.appendChild(cd_into);
+  }
+  else if(sessionStorage.getItem("current_dir") == "cd_into_me") {
+    var terminals = document.getElementsByClassName("terminal-output");
+    var terminal_output = terminals[terminals.length - 1];
+
+    var msg = document.createElement('span');
+    msg.innerHTML = "Hmmm, it looks like this directory is empty... It is cool though how ALL the features of the cd command are implemented. Try returning to the main directory, twice?";
+    msg.style.color = "#FFFDD0";
+    msg.style.fontSize = "15px";
+    terminal_output.appendChild(msg);
+  }
 }
 
 
