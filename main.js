@@ -31,11 +31,10 @@ function initTerm() {
       }
     }
   });
-  // sessionStorage.setItem("current_dir", "cd_into_me");
 }
 
 function evalCommand(command) {
-  var commands = ['ls', 'cd', 'about', 'projects', 'clear', 'resume'];
+  var commands = ['ls', 'cd', 'about', 'projects', 'clear', 'resume', 'bonus'];
 
   command = command.replace(" ", "");
 
@@ -59,6 +58,10 @@ function evalCommand(command) {
 
     if(command == 'clear') {
       clearTerm();
+    }
+
+    if(command == "bonus" && sessionStorage.getItem("lastDir") == "zakariyasattar") {
+      loadBonus(true);
     }
 
     if(command.substring(0, 2) == "cd") {
@@ -107,11 +110,11 @@ function generateTerminal() {
   if(sessionStorage.getItem("lastDir") == "zakariyasattar") {
     text.innerHTML = "users/zakariyasattar ~";
   }
-  else if(sessionStorage.getItem("current_dir") == null) {
-    text.innerHTML = "users/zakariyasattar/portfolio ~";
+  else if(sessionStorage.getItem("lastDir") == "portfolio"){
+    text.innerHTML = "users/zakariyasattar/" + sessionStorage.getItem("lastDir") + " ~";
   }
-  else {
-    text.innerHTML = "users/zakariyasattar/portfolio/" + sessionStorage.getItem("current_dir") + " ~";
+  else if(sessionStorage.getItem("lastDir") == "cd_into_me"){
+    text.innerHTML = "users/zakariyasattar/portfolio/" + sessionStorage.getItem("lastDir") + " ~";
   }
 
   text.className = "term-text";
@@ -155,7 +158,6 @@ function returnToTerminal() {
 function routeToDir(directory) {
     if(directory == "cd_into_me" || directory == "portfolio") {
       setTimeout(function(){
-        sessionStorage.setItem("current_dir", directory);
         var term_text = document.getElementsByClassName("term-text")[document.getElementsByClassName("term-text").length - 1];
         var text = term_text.innerHTML;
 
@@ -252,7 +254,28 @@ function loadProjects(shouldPrint) {
   showSlides(slideIndex);
 }
 
-// Next/previous controls
+function loadBonus(shouldPrint) {
+  var terminals = document.getElementsByClassName("terminal-output");
+  var terminal_output = terminals[terminals.length - 1];
+
+  var msg = document.createElement('span');
+  if(shouldPrint) {
+    msg.innerHTML = "Mapping to Bonus...";
+    msg.style.color = "#59ff50";
+    msg.style.fontSize = "15px";
+  }
+
+  terminal_output.appendChild(msg);
+
+  document.getElementById("tiny-terminal").style.display = "block";
+
+  document.getElementById("terminal").style.display = "none";
+  document.getElementById("bonus").style.display = "block";
+  document.getElementById("bonus").style.opacity = "1";
+
+  document.getElementById("body").style.background = "#16161a";
+}
+
 function plusSlides(n) {
   showSlides(slideIndex += n);
 }
@@ -351,7 +374,7 @@ function printLS() {
     var bonus = document.createElement('span');
 
     $(bonus).click(function(){
-      loadAbout(false);
+      loadBonus(false);
     });
     bonus.style.textDecoration = "underline";
     bonus.style.cursor = "pointer";
