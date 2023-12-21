@@ -153,13 +153,14 @@ function returnToTerminal() {
 }
 
 function routeToDir(directory) {
-    if(directory == "cd_into_me") {
+    if(directory == "cd_into_me" || directory == "portfolio") {
       setTimeout(function(){
         sessionStorage.setItem("current_dir", directory);
         var term_text = document.getElementsByClassName("term-text")[document.getElementsByClassName("term-text").length - 1];
         var text = term_text.innerHTML;
 
         term_text.innerHTML = text.substring(0, text.indexOf("~") - 1) +  "/" + directory + " ~";
+        sessionStorage.setItem("lastDir", term_text.innerHTML.substring(term_text.innerHTML.lastIndexOf("/") + 1, term_text.innerHTML.indexOf("~") -1));
       }, 40);
     }
     else if(directory == "..") {
@@ -336,7 +337,7 @@ function printLS() {
     var terminal_output = terminals[terminals.length - 1];
 
     var msg = document.createElement('span');
-    msg.innerHTML = "Hmmm, it looks like this directory is empty... It is cool though how ALL the features of the cd command are implemented. Try returning to the main directory, twice?";
+    msg.innerHTML ="Hmmm, it looks like this directory is empty... It is cool though how ALL the features of the cd command are implemented. Try returning to the main directory. I wonder how far back it goes...";
     msg.style.color = "royalblue";
     msg.style.fontSize = "15px";
     terminal_output.appendChild(msg);
