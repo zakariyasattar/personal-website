@@ -31,12 +31,14 @@ function initTerm() {
       }
     }
   });
+  document.onclick = function() { terminal_input.focus(); };
 }
 
 function evalCommand(command) {
-  var commands = ['ls', 'cd', 'about', 'projects', 'clear', 'resume', 'bonus'];
+  var commands = ['ls', 'about', 'projects', 'clear', 'resume', 'bonus'];
 
   command = command.replace(" ", "");
+  command = command.toLowerCase();
 
   if(command.substring(0, 2) == "cd" || commands.includes(command)) {
     if(command == "ls") {
@@ -225,6 +227,15 @@ function loadAbout(shouldPrint) {
   document.getElementById("about").style.opacity = "1";
 
   document.getElementById("body").style.background = "#16161a";
+
+  if(window.screen.width <= 500) {
+    document.getElementById("tiny-terminal").style.display = "none";
+    window.addEventListener('scroll', function() {
+      if(window.scrollY > window.screen.height/10) {
+          document.getElementById("tiny-terminal").style.display = "block";
+      }
+    });
+  }
 
 }
 

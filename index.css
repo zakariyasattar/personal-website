@@ -1,5 +1,6 @@
 #body {
   background: #232946;
+  width:100%;
 
 }
 
@@ -402,5 +403,60 @@ color: white;
      }
    }
  }
+}
+
+/* PHONE */
+@media screen and (max-device-width: 500px){
+  .terminal-parent {
+    padding-left: 15px;
+    padding-top: 15px;
+  }
+  .terminal {
+    font-size: 13.5px;
+  }
+  input {
+    font-size: 13.5px;
+
+    width: 30%;
+
+  }
+
+  .ls {
+    display: block;
+    font-size: 13.5px;
+    color: #fffffe;
+    padding-top: 5px;
+    font-family: monospace;
+  }
+
+  #about-header-parent {
+    bottom: 75px;
+    position: relative;
+    width: 100%;
+  }
+  #about-text-parent {
+    display: inline-block;
+    vertical-align:top;
+    width: 100%;
+    position: relative;
+    left: -27.5px;
+    top: -15vh;
+  }
+  #tiny-terminal {
+    position: fixed;
+    top: 6%;
+    left: 10%;
+    width: 75%;
+    height: 27px;
+  }
+  #tiny-terminal-text {
+    font-size: 13.5px;
+  }
+  #cursor {
+    width: 4px;
+    height: 11px;
+    top: 25%;
+    left: 102%;
+  }
 }
 
