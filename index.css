@@ -142,26 +142,7 @@ input:focus {outline:none;}
   font-size: 19px;
 }
 
-#next-slide-hint {
-  width: 7.5%;
-  float: right;
-  height: 85.59vh;
-  border-radius: 5px 0px 0px 5px;
-  background: #004643;
-  opacity: 0.75;
-  position: absolute;
-  right: 0;
-  top: 7.5vh;
-  transition: 0.6s ease;
-}
-
-#next-slide-hint:hover {
-  opacity: 1;
-  cursor: pointer;
-  width: 8%;
-}
-
-#prev-slide-hint {
+.plus {
   width: 7.5%;
   float: left;
   height: 85.59vh;
@@ -169,16 +150,32 @@ input:focus {outline:none;}
   background: #004643;
   opacity: 0.75;
   position: absolute;
-  left: 0;
   top: 7.5vh;
   transition: 0.6s ease;
+
+  color: white;
 }
 
-#prev-slide-hint:hover {
+.plus:hover {
   opacity: 1;
   cursor: pointer;
   width: 8%;
 }
+
+.arrow {
+  font-size: 45px;
+  position: absolute;
+  top: 42.795%;
+}
+
+#next-slide-hint {
+  right: 0;
+}
+
+#prev-slide-hint {
+  left: 0;
+}
+
 
 .prev, .next {
   font-family: 'Kay Pho Du', serif;
