@@ -316,7 +316,7 @@ function printLS() {
 
     var instructions = document.createElement('span');
     instructions.className = "ls";
-    instructions.innerHTML = "type in any of the commands below!";
+    instructions.innerHTML = "type in/click on any of the commands below!";
     instructions.style.color = "#FFFDD0";
 
     var about = document.createElement('span');
