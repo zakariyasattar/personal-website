@@ -3,7 +3,7 @@ window.onload = function() {
   sessionStorage.clear();
   sessionStorage.setItem("lastDir", "portfolio");
 
-  loadBonus();
+  // loadBonus();
 };
 
 function initTerm() {
