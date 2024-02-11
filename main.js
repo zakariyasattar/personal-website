@@ -2,6 +2,8 @@ window.onload = function() {
   initTerm();
   sessionStorage.clear();
   sessionStorage.setItem("lastDir", "portfolio");
+
+  loadBonus();
 };
 
 function initTerm() {
@@ -284,7 +286,20 @@ function loadBonus(shouldPrint) {
   document.getElementById("bonus").style.display = "block";
   document.getElementById("bonus").style.opacity = "1";
 
-  document.getElementById("body").style.background = "#16161a";
+  document.getElementById("body").style.background = "#f2f7f5";
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var fileContent = this.responseText;
+        fileContent = fileContent.replace(/\n/g, "</br>");
+        fileContent = fileContent.replace(/\t/g, "&nbsp;&nbsp;&nbsp;&nbsp;");
+        document.getElementById("story-text").innerHTML = fileContent;
+      }
+  };
+
+  xhttp.open("GET", "ethiopia.txt", true);
+  xhttp.send();
 }
 
 function plusSlides(n) {

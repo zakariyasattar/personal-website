@@ -206,6 +206,29 @@ input:focus {outline:none;}
   padding-left: 20px;
 }
 
+/* BONUS */
+
+#bonus {
+  font-family: 'Afacad', sans-serif;
+}
+
+#story-text {
+  font-family: 'EB Garamond', serif;
+  background: white;
+  border: 1px solid black;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-radius: 10px;
+  margin-right: 50px;
+  margin-left: 30px;
+  font-size: 20px;
+  line-height: 1.4;
+
+  padding-left: 10%;
+  padding-right: 10%;
+
+}
+
 /* Fading animation */
 .fade {
   animation-name: fade;
