@@ -4,7 +4,7 @@
   <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Afacad&family=Cedarville+Cursive&family=EB+Garamond&family=Inter&family=Kalnia&family=Kay+Pho+Du&family=Londrina+Outline&family=Roboto+Mono&family=Rubik+Glitch&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Afacad&family=Cedarville+Cursive&family=EB+Garamond&family=Inter&family=Kalnia&family=Kay+Pho+Du&family=Londrina+Outline&family=Roboto+Mono&family=Rubik+Glitch&family=Rubik+Glitch+Pop&family=Rubik+Puddles&display=swap" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css"/>
@@ -34,6 +34,7 @@
       <div id="about" style="transition: opacity 2s; opacity: 0; display: none;">
         <div id="about-header-parent">
           <h1 id="about-header">Zakariya Sattar</h1>
+          <h1 id="about-header-outline">Zakariya Sattar</h1>
         </div>
         <div id="about-text-parent">
           <p id="about-text">
@@ -59,7 +60,7 @@
             <img src="./images/testlock.png" width="50%" height="50%" style="border-radius: 5px; float: right; margin-right: 20px; margin-left: 20px;"></img>
             <img src="./images/test-lock-student-data.png" width="50%" height="50%" style="border-radius: 5px; float: right; margin-right: 20px; margin-left: 20px; margin-top: 20px;"></img>
 
-            &emsp;The genesis of Test-Lock arose from two observations: first, the presence of a built-in JavaScript event handler for browser Full-Screen mode exit, and second, the complexity of available testing applications, often challenging to navigate. The concept was straightforward yet transformative: initiate Full-Screen mode upon starting an exam, issue a warning on attempts to exit, with the fifth attempt triggering exam submission. If the alert persisted for over 10 seconds, the exam would auto-terminate, accompanied by a countdown timer. This ambitious project marked a significant milestone, requiring not only the implementation of a user-friendly front-end but also the development of robust testing features and a comprehensive back-end for test creation and grading by educators. The project's scale facilitated an in-depth understanding of dynamic webpage creation using JS and HTML, expertise in secure database management, local data storage using JSON and SessionStorage, authentication processes, and complex data calculations.
+            &emsp;The genesis of Test-Lock arose from two observations: first, the presence of a built-in JavaScript event handler for browser Full-Screen mode exit, and second, the complexity of available testing applications, often challenging to navigate. The concept was straightforward yet transformative: initiate Full-Screen mode upon starting an exam, issue a warning accompanied by a countdown timer on attempts to exit, with the fifth attempt triggering exam submission. If the warning persisted for over 10 seconds, the exam would auto-terminate. This ambitious project marked a significant milestone, requiring not only the implementation of a user-friendly front-end but also the development of robust testing features and a comprehensive back-end for test creation and grading by educators. The project's scale facilitated an in-depth understanding of dynamic webpage creation using JS and HTML, expertise in secure database management, local data storage using JSON and SessionStorage, authentication processes, and complex data calculations.
 
             <br/><br/>
 
@@ -100,11 +101,11 @@
       </div>
       <div id="bonus" style="opacity: 0; display: none;">
         <center>
-          <h1>Easter Egg!</h1>
-          <span>
+          <h1 id="bonus-title">Easter Egg: Ethiopia Edition!</h1>
+          <div style="width: 70%;"><span id="bonus-title-text">
             Congrats! You've passed the test and have located the Easter Egg. I'll reward you with a lovely story of my travels to Ethiopia.
             If you've made it this far, hopefully you have 5 more minutes. Thank you and get cozy!
-         </span>
+         </span></div>
        </center>
 
          <p id="story-text"></p>

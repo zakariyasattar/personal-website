@@ -75,7 +75,17 @@ input:focus {outline:none;}
 
 #about-header {
   font-family: 'Londrina Outline', sans-serif;
-  /* font-family: 'Rubik Glitch', system-ui; */
+  color: #4654ea;
+  font-size: 200px;
+  font-weight: 100;
+  text-shadow: 4px 4px #750707, -4px -4px #074275;
+
+  line-height: 80%;
+}
+
+#about-header-outline {
+  /* font-family: 'Londrina Outline', sans-serif; */
+  /* font-family: "Rubik Puddles", system-ui; */
   color: #4654ea;
   font-size: 200px;
   font-weight: 100;
@@ -212,6 +222,17 @@ input:focus {outline:none;}
 
 #bonus {
   font-family: 'Afacad', sans-serif;
+}
+
+#bonus-title {
+    font-family: "Rubik Glitch Pop", system-ui;
+    font-size: 55px;
+}
+
+#bonus-title-text {
+    font-size: 17px;
+    width: 10vw;
+    color: #00473e;
 }
 
 #story-text {
