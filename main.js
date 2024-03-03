@@ -37,12 +37,12 @@ function initTerm() {
 }
 
 function evalCommand(command) {
-  var commands = ['ls', 'about', 'projects', 'clear', 'resume', 'bonus'];
+  var commands = ['ls', 'about', 'projects', 'clear', 'resume', 'bonus', 'cd_into_me'];
 
   command = command.replace(" ", "");
   command = command.toLowerCase();
 
-  if(command.substring(0, 2) == "cd" || commands.includes(command)) {
+  if(command.substring(0, 3) == "cd " || commands.includes(command)) {
     if(command == "ls") {
       printLS();
     }
@@ -60,6 +60,10 @@ function evalCommand(command) {
       downloadResume();
     }
 
+    if(command == "cd_into_me") {
+      cdError();
+    }
+
     if(command == 'clear') {
       clearTerm();
     }
@@ -68,7 +72,7 @@ function evalCommand(command) {
       loadBonus(true);
     }
 
-    if(command.substring(0, 2) == "cd") {
+    if(command.substring(0, 3) == "cd ") {
       var directory = command.substring(2);
 
       routeToDir(directory);
@@ -85,6 +89,18 @@ function invalidCommand() {
 
   var error_msg = document.createElement('span');
   error_msg.innerHTML = "Sorry, that command doesn't exist!";
+  error_msg.style.color = "#FF7F50";
+  error_msg.style.fontSize = "15px";
+
+  terminal_output.appendChild(error_msg);
+}
+
+function cdError() {
+  var terminals = document.getElementsByClassName("terminal-output");
+  var terminal_output = terminals[terminals.length - 1];
+
+  var error_msg = document.createElement('span');
+  error_msg.innerHTML = "'cd_into_me' is a folder! Did you perhaps mean 'cd cd_into_me'?";
   error_msg.style.color = "#FF7F50";
   error_msg.style.fontSize = "15px";
 
@@ -396,7 +412,7 @@ function printLS() {
   else if(sessionStorage.getItem("lastDir") == "zakariyasattar") {
     var instructions = document.createElement('span');
     instructions.className = "ls";
-    instructions.innerHTML = "type in any of the commands below!";
+    instructions.innerHTML = "type in/click on any of the commands below!";
     instructions.style.color = "#FFFDD0";
 
     var bonus = document.createElement('span');
