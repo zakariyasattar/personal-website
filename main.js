@@ -171,13 +171,15 @@ function routeToDir(directory) {
     }
     else if(directory == "..") {
       setTimeout(function(){
-        sessionStorage.clear();
-        var term_text = document.getElementsByClassName("term-text")[document.getElementsByClassName("term-text").length - 1];
-        text = term_text.innerHTML;
+        if(sessionStorage.getItem("lastDir") != "zakariyasattar"){
+          sessionStorage.clear();
+          var term_text = document.getElementsByClassName("term-text")[document.getElementsByClassName("term-text").length - 1];
+          text = term_text.innerHTML;
 
-        term_text.innerHTML = text.substring(0, text.lastIndexOf("/")) + " ~";
+          term_text.innerHTML = text.substring(0, text.lastIndexOf("/")) + " ~";
 
-        sessionStorage.setItem("lastDir", term_text.innerHTML.substring(term_text.innerHTML.lastIndexOf("/") + 1, term_text.innerHTML.indexOf("~") -1));
+          sessionStorage.setItem("lastDir", term_text.innerHTML.substring(term_text.innerHTML.lastIndexOf("/") + 1, term_text.innerHTML.indexOf("~") -1));
+        }
       }, 40);
     }
     else {
