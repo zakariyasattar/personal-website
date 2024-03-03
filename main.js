@@ -42,7 +42,7 @@ function evalCommand(command) {
   command = command.replace(" ", "");
   command = command.toLowerCase();
 
-  if(command.substring(0, 3) == "cd " || commands.includes(command)) {
+  if(command.substring(0, 2) == "cd" || commands.includes(command)) {
     if(command == "ls") {
       printLS();
     }
@@ -64,7 +64,7 @@ function evalCommand(command) {
       cdError();
     }
 
-    if(command == 'clear') {
+    if(command == "clear") {
       clearTerm();
     }
 
@@ -72,10 +72,12 @@ function evalCommand(command) {
       loadBonus(true);
     }
 
-    if(command.substring(0, 3) == "cd ") {
+    if(command.substring(0, 2) == "cd") {
       var directory = command.substring(2);
 
-      routeToDir(directory);
+      if(command.charAt(2) != '_') {
+        routeToDir(directory);
+      }
     }
   }
   else {
@@ -176,7 +178,8 @@ function returnToTerminal() {
 }
 
 function routeToDir(directory) {
-    if(directory == "cd_into_me" || directory == "portfolio") {
+
+  if(directory == "cd_into_me" || directory == "portfolio") {
       setTimeout(function(){
         var term_text = document.getElementsByClassName("term-text")[document.getElementsByClassName("term-text").length - 1];
         var text = term_text.innerHTML;
