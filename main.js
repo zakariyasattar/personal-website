@@ -11,6 +11,13 @@ function initTerm() {
   var terminal_input = terminals[terminals.length - 1];
   terminal_input.focus();
 
+  $(terminal_input).keydown(function(e) {
+    if (e.keyCode == 9) {
+      autocomplete(terminal_input);
+      e.preventDefault();
+    }
+  });
+
   document.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
       if(document.activeElement === terminal_input) {
@@ -34,6 +41,28 @@ function initTerm() {
     }
   });
   document.onclick = function() { terminal_input.focus(); };
+}
+
+function autocomplete(term_input) {
+  currentStr = term_input.value;
+  var commands = ['ls', 'about', 'projects', 'clear', 'resume', 'bonus'];
+
+  for(var command in commands) {
+    if(commands[command].indexOf(currentStr) == 0){
+      term_input.value = commands[command];
+    }
+  }
+
+  if(currentStr.substring(0, 2) == "cd") {
+    var lastDir = sessionStorage.getItem("lastDir");
+    currentStr = currentStr.substring(3);
+    if(lastDir == "portfolio" && "cd_into_me".indexOf(currentStr) == 0){
+      term_input.value = "cd cd_into_me";
+    }
+    else if(lastDir == "zakariyasattar" && "portfolio".indexOf(currentStr) == 0){
+      term_input.value = "cd portfolio";
+    }
+  }
 }
 
 function evalCommand(command) {
