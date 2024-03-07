@@ -13,7 +13,9 @@ function initTerm() {
 
   $(terminal_input).keydown(function(e) {
     if (e.keyCode == 9) {
-      autocomplete(terminal_input);
+      if(terminal_input.value != ""){
+        autocomplete(terminal_input);
+      }
       e.preventDefault();
     }
   });
