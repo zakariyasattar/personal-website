@@ -3,7 +3,7 @@ window.onload = function() {
   sessionStorage.clear();
   sessionStorage.setItem("lastDir", "portfolio");
 
-  // loadBonus();
+  loadBonus();
 };
 
 function initTerm() {
@@ -121,6 +121,7 @@ function invalidCommand() {
   var terminal_output = terminals[terminals.length - 1];
 
   var error_msg = document.createElement('span');
+  error_msg.style.fontFamily = "'Roboto Mono', monospace";
   error_msg.innerHTML = "Sorry, that command doesn't exist!";
   error_msg.style.color = "#FF7F50";
   error_msg.style.fontSize = "15px";
@@ -196,6 +197,11 @@ function generateTerminal() {
 }
 
 function returnToTerminal() {
+  if(document.getElementById("bonus") != "none") {
+    document.getElementById("tiny-terminal").style.position = "absolute";
+    document.getElementById("tiny-terminal").style.paddingTop = "0px";
+    document.getElementById("tiny-terminal").style.paddingBottom = "0px";
+  }
   document.getElementById("about").style.display = "none";
   document.getElementById("projects").style.display = "none";
   document.getElementById("bonus").style.display = "none";
@@ -333,6 +339,10 @@ function loadBonus(shouldPrint) {
   terminal_output.appendChild(msg);
 
   document.getElementById("tiny-terminal").style.display = "block";
+
+  document.getElementById("tiny-terminal").style.position = "sticky";
+  document.getElementById("tiny-terminal").style.paddingTop = "5px";
+  document.getElementById("tiny-terminal").style.paddingBottom = "5px";
 
   document.getElementById("terminal").style.display = "none";
   document.getElementById("bonus").style.display = "block";

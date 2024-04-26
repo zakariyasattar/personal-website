@@ -265,6 +265,7 @@ input:focus {outline:none;}
 
 #tiny-terminal {
   position: absolute;
+
   bottom: 5%;
   width: 35%;
   height: 5%;
