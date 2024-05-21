@@ -4,6 +4,7 @@ window.onload = function() {
   sessionStorage.setItem("lastDir", "portfolio");
 
   // loadBonus();
+  // loadProjects();
 };
 
 function initTerm() {
@@ -244,10 +245,24 @@ function routeToDir(directory) {
 
       var msg = document.createElement('span');
       msg.innerHTML = "Directory '" + directory + "' doesn't exist";
-      msg.style.color = "#59ff50";
+      msg.style.color = "#FF7F50";
       msg.style.fontSize = "15px";
+      msg.style.fontFamily = "'Roboto Mono', monospace";
 
-      terminal_output.appendChild(msg);
+      if(directory == "about" || directory == "projects" || directory == "resume") {
+        if(directory == "about") {
+          loadAbout(true);
+        }
+        else if(directory == "projects") {
+          loadProjects(true);
+        }
+        else if(directory == "resume") {
+          downloadResume(true);
+        }
+      }
+      else {
+        terminal_output.appendChild(msg);
+      }
     }
 }
 
@@ -258,8 +273,9 @@ function downloadResume(shouldPrint) {
   var msg = document.createElement('span');
   if(shouldPrint) {
     msg.innerHTML = "Opening Resume...";
-    msg.style.color = "#59ff50";
+    msg.style.color = "#52e349";
     msg.style.fontSize = "15px";
+    msg.style.fontFamily = "'Roboto Mono', monospace";
   }
 
   terminal_output.appendChild(msg);
@@ -274,8 +290,9 @@ function loadAbout(shouldPrint) {
   var msg = document.createElement('span');
   if(shouldPrint) {
     msg.innerHTML = "Mapping to About...";
-    msg.style.color = "#59ff50";
+    msg.style.color = "#52e349";
     msg.style.fontSize = "15px";
+    msg.style.fontFamily = "'Roboto Mono', monospace";
   }
 
   terminal_output.appendChild(msg);
@@ -308,8 +325,9 @@ function loadProjects(shouldPrint) {
   var msg = document.createElement('span');
   if(shouldPrint) {
     msg.innerHTML = "Mapping to Projects...";
-    msg.style.color = "#59ff50";
+    msg.style.color = "#52e349";
     msg.style.fontSize = "15px";
+    msg.style.fontFamily = "'Roboto Mono', monospace";
   }
 
   terminal_output.appendChild(msg);
@@ -320,7 +338,7 @@ function loadProjects(shouldPrint) {
   document.getElementById("projects").style.display = "block";
   document.getElementById("projects").style.opacity = "1";
 
-  document.getElementById("body").style.background = "#abd1c6";
+  document.getElementById("body").style.background = "#211f33";
 
   showSlides(slideIndex);
 }
@@ -332,8 +350,9 @@ function loadBonus(shouldPrint) {
   var msg = document.createElement('span');
   if(shouldPrint) {
     msg.innerHTML = "Mapping to Bonus...";
-    msg.style.color = "#59ff50";
+    msg.style.color = "#52e349";
     msg.style.fontSize = "15px";
+    msg.style.fontFamily = "'Roboto Mono', monospace";
   }
 
   terminal_output.appendChild(msg);
