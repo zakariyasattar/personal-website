@@ -136,10 +136,10 @@ input:focus {outline:none;}
 
 /* PROJECTS */
 .project {
-  width: 75%;
+  width: 77%;
   height: 90vh;
   position: fixed;
-  left: 11%;
+  left: 10%;
   top: 3vh;
   border-radius: 5px;
   padding: 20px;
@@ -153,6 +153,20 @@ input:focus {outline:none;}
   margin-left: 20px;
   margin-bottom: 20px;
   margin-top: 40px;
+}
+
+.project-body {
+  position: relative;
+  top: 8%;
+}
+
+.project-bullet-points {
+  position: relative;
+  top: 50%;
+  left: 30px;
+  color: white;
+  font-family: 'Afacad', sans-serif;
+  font-size: 20px;
 }
 
 .project-text {

@@ -14,6 +14,15 @@
     <title>Zakariya Sattar</title>
     <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133322423-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-133322423-2');
+    </script>
   </head>
 
 
@@ -55,21 +64,33 @@
       </div>
 
       <div id="projects" style="opacity: 0; display: none; font-family: 'Poetsen One', sans-serif;">
+
         <div class="project">
-          <center><span class="project-title">Test-Lock</span></center>
+          <center><span class="project-title">Quirk Health</span></center>
 
-            <center><img src="./images/test-lock-student-data.png" width="75%" height="50%" id="test-lock-main-img"></img></center>
-            <!-- <img src="./images/testlock.png" width="50%" height="50%" style="border-radius: 5px; float: right; margin-right: 20px; margin-left: 20px;"></img> -->
+          <div class="project-body">
 
-            <p class="project-text">
-            &emsp;The genesis of Test-Lock arose from two observations: first, the presence of a built-in JavaScript event handler for browser Full-Screen mode exit, and second, the complexity of available testing applications, often challenging to navigate. The concept was straightforward yet transformative: initiate Full-Screen mode upon starting an exam, issue a warning accompanied by a countdown timer on attempts to exit, with the fifth attempt triggering exam submission. If the warning persisted for over 10 seconds, the exam would auto-terminate. This ambitious project marked a significant milestone, requiring not only the implementation of a user-friendly front-end but also the development of robust testing features and a comprehensive back-end for test creation and grading by educators. The project's scale facilitated an in-depth understanding of dynamic webpage creation using JS and HTML, expertise in secure database management, local data storage using JSON and SessionStorage, authentication processes, and complex data calculations.
+            <center><img src="./images/quirk.png" width="50%" height="50%" style="float:left" id="test-lock-main-img"></img></center>
+
+            <ul class="project-bullet-points">
+              <li class="bullet-point">Built a full-stack web application that lets users search and view hospital service data nationwide, focusing on pricing and insurance information. Proud to have placed in the top 10% of Y-Combinator applications for the YC S24 batch</li>
+              <br>
+              <li class="bullet-point">Cleaned and stored over 3 TB of hospital and insurance pricing data in MongoDB Atlas using Pandas DataFrame</li>
+              <br>
+              <li class="bullet-point">Enhanced data retrieval speed, achieving over 1000 results in under two seconds through optimized MongoDB querying and serverless functions, cutting down wait times by 87%. Integrated geocoding APIs and geospatial querying to filter and sort results based on user location</li>
+              <br>
+            </ul>
+          </div>
+            <!-- <p class="project-text">
+            Quirk Health is an app that allows
 
             <br/><br/>
 
             &emsp;Both the code and a video demo walkthrough are available on GitHub: <a href="https://github.com/zakariyasattar/Test-Lock" style="color: #f9bc60" target="_blank">Test-Lock</a>
 
-          </p>
+          </p> -->
         </div>
+
         <div class="project" style="color: white">
           <center><span class="project-title">Stock Market Trading Algorithm</span></center>
           <p class="project-text">
@@ -93,6 +114,22 @@
               <img src="./images/nwbusapp.png" width="48%" height="48%" style="margin-left: 10px; margin-right: 1%;position: relative; float: left; border-radius: 5px;"></img>
               <img src="./images/nwbusapp_staff.png" width="48%" height="48%" style="margin-right: 10px;  margin-left: 1%; position: relative; float: left; border-radius: 5px;"></img>
             </div>
+
+          </p>
+        </div>
+
+        <div class="project">
+          <center><span class="project-title">Test-Lock</span></center>
+
+            <center><img src="./images/test-lock-student-data.png" width="75%" height="50%" id="test-lock-main-img"></img></center>
+            <!-- <img src="./images/testlock.png" width="50%" height="50%" style="border-radius: 5px; float: right; margin-right: 20px; margin-left: 20px;"></img> -->
+
+            <p class="project-text">
+            &emsp;The genesis of Test-Lock arose from two observations: first, the presence of a built-in JavaScript event handler for browser Full-Screen mode exit, and second, the complexity of available testing applications, often challenging to navigate. The concept was straightforward yet transformative: initiate Full-Screen mode upon starting an exam, issue a warning accompanied by a countdown timer on attempts to exit, with the fifth attempt triggering exam submission. If the warning persisted for over 10 seconds, the exam would auto-terminate. This ambitious project marked a significant milestone, requiring not only the implementation of a user-friendly front-end but also the development of robust testing features and a comprehensive back-end for test creation and grading by educators. The project's scale facilitated an in-depth understanding of dynamic webpage creation using JS and HTML, expertise in secure database management, local data storage using JSON and SessionStorage, authentication processes, and complex data calculations.
+
+            <br/><br/>
+
+            &emsp;Both the code and a video demo walkthrough are available on GitHub: <a href="https://github.com/zakariyasattar/Test-Lock" style="color: #f9bc60" target="_blank">Test-Lock</a>
 
           </p>
         </div>
