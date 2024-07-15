@@ -25,6 +25,25 @@ font-family: 'Londrina Outline', sans-serif;
   font-family: 'Kay Pho Du', serif;
 }
 
+#banner {
+  position: fixed;
+  left: 45%;
+
+
+  margin-top: 10px;
+  font-size: 20px;
+
+  font-family: 'Kay Pho Du', serif;
+  color: white;
+
+  z-index: 10;
+}
+
+#banner a {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
 .terminal {
   background: transparent;
   color: #b8c1ec;

@@ -300,6 +300,7 @@ function loadAbout(shouldPrint) {
   document.getElementById("tiny-terminal").style.display = "block";
 
   document.getElementById("terminal").style.display = "none";
+  document.getElementById("projects").style.display = "none";
   document.getElementById("about").style.display = "block";
   document.getElementById("about").style.opacity = "1";
 
@@ -335,6 +336,7 @@ function loadProjects(shouldPrint) {
   document.getElementById("tiny-terminal").style.display = "block";
 
   document.getElementById("terminal").style.display = "none";
+  document.getElementById("about").style.display = "none";
   document.getElementById("projects").style.display = "block";
   document.getElementById("projects").style.opacity = "1";
 
