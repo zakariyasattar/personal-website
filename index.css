@@ -519,6 +519,11 @@ color: white;
     height: 35px;
   }
 
+  .project-bullet-points {
+    top: 6vh;
+    width: 43.5%;
+  }
+
 }
 
 /* PHONE */
