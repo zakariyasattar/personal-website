@@ -27,7 +27,7 @@ font-family: 'Londrina Outline', sans-serif;
 
 #banner {
   position: fixed;
-  left: 45%;
+  left: 42.5%;
 
 
   margin-top: 10px;
@@ -129,10 +129,11 @@ input:focus {outline:none;}
 #about-text-parent {
   display: inline-block;
   vertical-align:top;
+
   width: 60%;
   position: relative;
   left: 10px;
-  top: 3vh;
+  top: 7vh;
 }
 
 #about-header-second {
