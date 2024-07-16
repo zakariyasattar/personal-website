@@ -13,11 +13,15 @@ font-family: 'Londrina Outline', sans-serif;
     font-family: 'Rubik Glitch', system-ui;
 */
 
+#terminal {
+  padding-top: 15px;
+}
+
 .terminal-parent {
   height: 100%;
   overflow: hidden;
   padding-left: 35px;
-  padding-top: 35px;
+  padding-top: 20px;
 }
 
 #tip {
@@ -52,9 +56,25 @@ font-family: 'Londrina Outline', sans-serif;
   font-size: 20px;
   word-break: break-all;
 
-  padding-bottom: 10px;
+  padding-bottom: 5px;
 
   font-family: 'Roboto Mono', monospace;
+}
+
+.links {
+  color: #eebbc3;
+  display: block;
+  font-size: 15px;
+  padding-bottom: 10px;
+  font-family: monospace;
+}
+
+.links-last {
+  color: #eebbc3;
+  display: block;
+  font-size: 15px;
+  padding-bottom: 0px;
+  font-family: monospace;
 }
 
 .ls {
