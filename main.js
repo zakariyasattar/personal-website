@@ -4,7 +4,8 @@ window.onload = function() {
   sessionStorage.setItem("lastDir", "portfolio");
 
   // loadBonus();
-  // loadProjects();
+  loadProjects();
+  // loadAbout();
 };
 
 function initTerm() {
