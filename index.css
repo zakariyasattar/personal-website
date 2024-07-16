@@ -182,8 +182,7 @@ input:focus {outline:none;}
 
 .project-bullet-points {
   position: relative;
-  top: 6vh;
-  width: 43.5%;
+  width: 40.5%;
   float: right;
   /* left: 30px; */
   color: white;
@@ -200,6 +199,8 @@ input:focus {outline:none;}
 
 .project-title {
   font-size: 65px;
+  position: relative;
+  /* top: 20px; */
   color: white;
   text-decoration: underline;
   text-decoration-style: dashed;
