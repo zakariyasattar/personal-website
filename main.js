@@ -4,7 +4,7 @@ window.onload = function() {
   sessionStorage.setItem("lastDir", "portfolio");
 
   // loadBonus();
-  loadProjects();
+  // loadProjects();
   // loadAbout();
 };
 
@@ -49,7 +49,7 @@ function initTerm() {
 
 function autocomplete(term_input) {
   currentStr = term_input.value;
-  var commands = ['ls', 'about', 'projects', 'clear', 'resume', 'bonus'];
+  var commands = ['ls', 'about', 'projects', 'clear', 'resume', 'bonus', 'links'];
 
   for(var command in commands) {
     if(commands[command].indexOf(currentStr) == 0){
@@ -70,7 +70,7 @@ function autocomplete(term_input) {
 }
 
 function evalCommand(command) {
-  var commands = ['ls', 'about', 'projects', 'clear', 'resume', 'bonus', 'cd_into_me'];
+  var commands = ['ls', 'about', 'projects', 'clear', 'resume', 'bonus', 'cd_into_me', 'links'];
 
   command = command.replace(" ", "");
   command = command.toLowerCase();
@@ -101,6 +101,10 @@ function evalCommand(command) {
       clearTerm();
     }
 
+    if(command == "links") {
+      printLinks();
+    }
+
     if(command == "bonus" && sessionStorage.getItem("lastDir") == "zakariyasattar") {
       loadBonus(true);
     }
@@ -123,7 +127,7 @@ function invalidCommand() {
   var terminal_output = terminals[terminals.length - 1];
 
   var error_msg = document.createElement('span');
-  error_msg.style.fontFamily = "'Roboto Mono', monospace";
+  error_msg.style.fontFamily = "monospace";
   error_msg.innerHTML = "Sorry, that command doesn't exist!";
   error_msg.style.color = "#FF7F50";
   error_msg.style.fontSize = "15px";
@@ -131,11 +135,44 @@ function invalidCommand() {
   terminal_output.appendChild(error_msg);
 }
 
+function printLinks() {
+  var terminals = document.getElementsByClassName("terminal-output");
+  var terminal_output = terminals[terminals.length - 1];
+
+  var description = document.createElement('span');
+  description.innerHTML = "Follow/connect with me through these mediums:";
+  description.style.color = "#FFFDD0";
+  description.style.fontFamily = "monospace";
+  description.style.paddingBottom = "10px";
+  description.className = "ls";
+
+  var linkedin = document.createElement('a');
+  linkedin.innerHTML = "https://www.linkedin.com/in/zakariyasattar/";
+  linkedin.href = "https://www.linkedin.com/in/zakariyasattar/";
+  linkedin.className = "links";
+
+  var github = document.createElement('a');
+  github.innerHTML = "https://github.com/zakariyasattar";
+  github.href = "https://github.com/zakariyasattar";
+  github.className = "links";
+
+  var email = document.createElement('a');
+  email.innerHTML = "zakariyasattar03@gmail.com";
+  email.href = "mailto:zakariyasattar03@gmail.com";
+  email.className = "links-last";
+
+  terminal_output.appendChild(description);
+  terminal_output.appendChild(linkedin);
+  terminal_output.appendChild(github);
+  terminal_output.appendChild(email);
+}
+
 function cdError() {
   var terminals = document.getElementsByClassName("terminal-output");
   var terminal_output = terminals[terminals.length - 1];
 
   var error_msg = document.createElement('span');
+  error_msg.style.fontFamily = "monospace";
   error_msg.innerHTML = "'cd_into_me' is a folder! Did you perhaps mean 'cd cd_into_me'?";
   error_msg.style.color = "#FF7F50";
   error_msg.style.fontSize = "15px";
@@ -245,10 +282,10 @@ function routeToDir(directory) {
       var terminal_output = terminals[terminals.length - 1];
 
       var msg = document.createElement('span');
-      msg.innerHTML = "Directory '" + directory + "' doesn't exist";
+      msg.innerHTML = "Directory '" + directory + "' doesn't exist!";
       msg.style.color = "#FF7F50";
       msg.style.fontSize = "15px";
-      msg.style.fontFamily = "'Roboto Mono', monospace";
+      msg.style.fontFamily = "monospace";
 
       if(directory == "about" || directory == "projects" || directory == "resume") {
         if(directory == "about") {
@@ -276,7 +313,7 @@ function downloadResume(shouldPrint) {
     msg.innerHTML = "Opening Resume...";
     msg.style.color = "#52e349";
     msg.style.fontSize = "15px";
-    msg.style.fontFamily = "'Roboto Mono', monospace";
+    msg.style.fontFamily = "monospace";
   }
 
   terminal_output.appendChild(msg);
@@ -293,7 +330,7 @@ function loadAbout(shouldPrint) {
     msg.innerHTML = "Mapping to About...";
     msg.style.color = "#52e349";
     msg.style.fontSize = "15px";
-    msg.style.fontFamily = "'Roboto Mono', monospace";
+    msg.style.fontFamily = "monospace";
   }
 
   terminal_output.appendChild(msg);
@@ -329,7 +366,7 @@ function loadProjects(shouldPrint) {
     msg.innerHTML = "Mapping to Projects...";
     msg.style.color = "#52e349";
     msg.style.fontSize = "15px";
-    msg.style.fontFamily = "'Roboto Mono', monospace";
+    msg.style.fontFamily = "monospace";
   }
 
   terminal_output.appendChild(msg);
@@ -355,7 +392,7 @@ function loadBonus(shouldPrint) {
     msg.innerHTML = "Mapping to Bonus...";
     msg.style.color = "#52e349";
     msg.style.fontSize = "15px";
-    msg.style.fontFamily = "'Roboto Mono', monospace";
+    msg.style.fontFamily = "monospace";
   }
 
   terminal_output.appendChild(msg);
@@ -417,6 +454,7 @@ function printLS() {
     instructions.className = "ls";
     instructions.innerHTML = "type in/click on any of the commands below!";
     instructions.style.color = "#FFFDD0";
+    instructions.style.paddingBottom = "10px";
 
     var about = document.createElement('span');
 
@@ -451,6 +489,17 @@ function printLS() {
     resume.className = "ls";
     resume.textContent = "resume";
 
+    var links = document.createElement('span');
+    $(links).click(function(){
+      printLinks();
+      generateTerminal();
+    });
+    links.style.textDecoration = "underline";
+    links.style.cursor = "pointer";
+
+    links.className = "ls";
+    links.textContent = "links";
+
     var cd_into = document.createElement('span');
     cd_into.className = "ls";
     cd_into.textContent = 'cd_into_me';
@@ -463,6 +512,7 @@ function printLS() {
     output.appendChild(about);
     output.appendChild(projects);
     output.appendChild(resume);
+    output.appendChild(links);
     output.appendChild(cd_into);
   }
   else if(sessionStorage.getItem("lastDir") == "cd_into_me") {
