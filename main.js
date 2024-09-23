@@ -342,7 +342,7 @@ function loadAbout(shouldPrint) {
   document.getElementById("about").style.display = "block";
   document.getElementById("about").style.opacity = "1";
 
-  document.getElementById("body").style.background = "#16161a";
+  document.getElementById("body").style.background = "#1d0e2c";
 
   if(window.screen.width <= 500) {
     document.getElementById("tiny-terminal").style.display = "none";
